@@ -230,7 +230,7 @@ MonoBehaviour:
       Data: 13|System.RuntimeType, mscorlib
     - Name: 
       Entry: 1
-      Data: Yamadev.VRCHandMenu.TimeEventListener[], Yamadev.VRCHandMenu
+      Data: Yamadev.VRCHandMenu.TimeEventListener[], Yamadev.VRCHandMenu.Udon
     - Name: 
       Entry: 8
       Data: 
