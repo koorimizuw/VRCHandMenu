@@ -1,0 +1,17 @@
+{
+  "name": "net.kwxxw.vrc-hand-menu",
+  "displayName": "VRCHandMenu",
+  "version": "1.3.3",
+  "unity": "2022.3",
+  "description": "Hand menu.",
+  "author": {
+    "name": "kwxxw",
+    "url": "https://yamadev.booth.pm"
+  },
+  "legacyFolders": {
+    "Assets\\Yamadev\\VRCHandMenu": "65a0e18eb18223441b7ef012c99e7b56"
+  },
+  "vpmDependencies": {
+    "com.vrchat.worlds": ">=3.6.0"
+  }
+}
