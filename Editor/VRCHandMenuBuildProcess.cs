@@ -6,6 +6,8 @@ using UnityEditor.Build.Reporting;
 using VRC.SDKBase;
 using Yamadev.VRCHandMenu.Script;
 using Yamadev.YamaStream;
+using UnityEditor;
+using UnityEngine.Device;
 
 namespace Yamadev.VRCHandMenu.Editor
 {
@@ -47,6 +49,7 @@ namespace Yamadev.VRCHandMenu.Editor
             foreach (VRCHandMenuSettings settings in Resources.FindObjectsOfTypeAll<VRCHandMenuSettings>())
             {
                 if (settings.yamaPlayer == null) continue;
+                settings.yamaPlayer.AddScreen(ScreenType.RawImage, settings.videoScreen);
                 foreach (UIController uiController in settings.GetComponentsInChildren<UIController>())
                 {
                     if (uiController.GetProgramVariable("_controller") == null)

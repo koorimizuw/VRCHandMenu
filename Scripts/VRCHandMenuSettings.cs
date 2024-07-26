@@ -60,6 +60,7 @@ namespace Yamadev.VRCHandMenu.Script
         public Slider LightAvatarSlider;
 
         public Controller yamaPlayer;
+        public RawImage videoScreen;
 
         public Transform PPHandle => ppHandle;
         public Transform LightHandle => lightHandle;
