@@ -3,7 +3,7 @@
     "rootNamespace": "",
     "references": [
         "UdonSharp.Runtime",
-        "Yamadev.YamaStream.Udon"
+        "Yamadev.YamaStream.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
