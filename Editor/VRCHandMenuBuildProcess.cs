@@ -6,6 +6,7 @@ using UnityEditor.Build.Reporting;
 using VRC.SDKBase;
 using Yamadev.VRCHandMenu.Script;
 using Yamadev.YamaStream;
+using Yamadev.YamaStream.UI;
 using UnityEditor;
 using UnityEngine.Device;
 
