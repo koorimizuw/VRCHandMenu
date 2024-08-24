@@ -7,11 +7,6 @@ using VRC.Udon;
 namespace Yamadev.VRCHandMenu {
     public abstract class TimeEventListener : UdonSharpBehaviour
     {
-        void Start()
-        {
-
-        }
-
-        public void TimeSecondEvent() { }
+        public virtual void TimeSecondEvent() { }
     }
 }

@@ -1,6 +1,5 @@
 ﻿
 using System;
-using System.Globalization;
 using UdonSharp;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,21 +12,13 @@ namespace Yamadev.VRCHandMenu
     [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
     public class TimeHandle : UdonSharpBehaviour
     {
-        [SerializeField]
-        Text DateText;
-        [SerializeField]
-        Text TimeText;
-
+        [SerializeField] Text DateText;
+        [SerializeField] Text TimeText;
 
         float _timeGap = 0f;
         TimeEventListener[] _listeners;
 
         public string[] dayOfWeekJP = { "日", "月", "火", "水", "木", "金", "土"};
-
-        void Start()
-        {
-
-        }
 
         void Update()
         {
@@ -41,12 +32,12 @@ namespace Yamadev.VRCHandMenu
             if (_listeners != null) foreach (var i in _listeners) i.TimeSecondEvent();
         }
 
-        public void AddListener(UdonSharpBehaviour listener)
+        public void AddListener(TimeEventListener listener)
         {
             if (_listeners == null) _listeners = new TimeEventListener[0];
             TimeEventListener[] ret = new TimeEventListener[_listeners.Length + 1];
             _listeners.CopyTo(ret, 0);
-            ret[_listeners.Length] = (TimeEventListener)listener;
+            ret[_listeners.Length] = listener;
             _listeners = ret;
         }
 

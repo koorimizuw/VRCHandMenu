@@ -3,46 +3,36 @@ using UdonSharp;
 using UnityEngine;
 using UnityEngine.UI;
 using VRC.SDKBase;
-using VRC.Udon;
 using System;
 
 namespace Yamadev.VRCHandMenu
 {
     [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
-    public class AlarmHandle : UdonSharpBehaviour
+    public class AlarmHandle : TimeEventListener
     {
-        [SerializeField]
-        TimeHandle timeHandle;
+        [SerializeField] TimeHandle timeHandle;
 
         [Header("UI")]
-        [SerializeField]
-        Transform currentTime;
-        [SerializeField]
-        Transform alarmTime;
-        [SerializeField]
-        Transform ellipsis;
-        [SerializeField]
-        Transform hourController;
-        [SerializeField]
-        Transform minuteController;
-        [SerializeField]
-        Button setButton;
+        [SerializeField] Transform currentTime;
+        [SerializeField] Transform alarmTime;
+        [SerializeField] Transform ellipsis;
+        [SerializeField] Transform hourController;
+        [SerializeField] Transform minuteController;
+        [SerializeField] Button setButton;
 
-        [SerializeField]
-        private Text mainPanelText;
+        [SerializeField] Text mainPanelText;
         
 
         [Header("Settings")]
-        [SerializeField]
-        private AudioSource _alarmSound;
+        [SerializeField] AudioSource _alarmSound;
 
-        private int _alarmHour = 8;
-        private int _alarmMin = 0;
-        private DateTime _alarmTime;
+        int _alarmHour = 8;
+        int _alarmMin = 0;
+        DateTime _alarmTime;
 
-        private bool _enable = false;
-        private bool _isActive = false;
-        private float _activeTime = 0.0f;
+        bool _enable = false;
+        bool _isActive = false;
+        float _activeTime = 0.0f;
 
         void Start()
         {
@@ -71,7 +61,7 @@ namespace Yamadev.VRCHandMenu
             if (now > _alarmTime) turnOnAlarm();
         }
 
-        public void TimeSecondEvent()
+        public override void TimeSecondEvent()
         {
             if (!_enable) return; 
 

@@ -3,8 +3,6 @@ using UdonSharp;
 using UnityEngine;
 using UnityEngine.UI;
 using VRC.SDKBase;
-using VRC.Udon;
-using System;
 using VRC.Udon.Common;
 
 namespace Yamadev.VRCHandMenu
@@ -13,29 +11,21 @@ namespace Yamadev.VRCHandMenu
     public class MenuHandle : UdonSharpBehaviour
     {
         [Header("Main")]
-        [SerializeField]
-        float menuSize = 0.85f;
-        [SerializeField]
-        float distance = 0.05f;
-        [SerializeField]
-        Camera targetCamera;
-        [SerializeField]
-        bool closeMenuAfterTooltip = true;
+        [SerializeField] float menuSize = 0.85f;
+        [SerializeField] float distance = 0.05f;
+        [SerializeField] Camera targetCamera;
+        [SerializeField] bool closeMenuAfterTooltip = true;
+        [SerializeField] string _version;
 
         [Header("UI")]
-        [SerializeField]
-        Canvas detailCanvas;
-        [SerializeField]
-        Canvas tipCanvas;
-        [SerializeField]
-        Page defaultPage;
+        [SerializeField] Canvas mainCanvas;
+        [SerializeField] Canvas detailCanvas;
+        [SerializeField] Canvas tipCanvas;
+        [SerializeField] Page defaultPage;
 
-        [SerializeField]
-        Button returnButton;
-        [SerializeField]
-        Button closeButton;
-        [SerializeField]
-        Button pinButton;
+        [SerializeField] Button returnButton;
+        [SerializeField] Button closeButton;
+        [SerializeField] Button pinButton;
 
         bool _isInitilized = false;
         bool _isVR = false;
@@ -68,6 +58,9 @@ namespace Yamadev.VRCHandMenu
                 tipText.text = "Tabキーを押しながらメニューを操作してください";
             }
 
+            Text versionText = mainCanvas.transform.Find("Version").GetComponent<Text>();
+            versionText.text = $"VRCHandMenu v{_version} by やま@kwxxw";
+
             setMenuActive(false);
             setMenuPosition();
 
@@ -88,7 +81,7 @@ namespace Yamadev.VRCHandMenu
 
         public override void InputUse(bool value, UdonInputEventArgs args)
         {
-            if (!value || args.handType == HandType.RIGHT) return;
+            if (!value || args.handType != HandType.LEFT || Networking.LocalPlayer.GetPickupInHand(VRC_Pickup.PickupHand.Left) != null) return;
             var now = Time.time;
 
             // is cooling

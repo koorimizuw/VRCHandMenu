@@ -9,15 +9,8 @@ namespace Yamadev.VRCHandMenu
     [UdonBehaviourSyncMode(BehaviourSyncMode.None)]
     public class Pagination : UdonSharpBehaviour
     {
-        [SerializeField]
-        MenuHandle menuHandle;
-        [SerializeField]
-        Page targetPage;
-
-        void Start()
-        {
-            
-        }
+        [SerializeField] MenuHandle menuHandle;
+        [SerializeField] Page targetPage;
 
         public void ShowTargetPage()
         {
