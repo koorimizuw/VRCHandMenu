@@ -4,39 +4,20 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 using VRC.SDKBase;
-using VRC.Udon;
-using VRC.Udon.Common.Interfaces;
 
 namespace Yamadev.VRCHandMenu
 {
     [UdonBehaviourSyncMode(BehaviourSyncMode.Manual)]
-    public class JoinHandle : UdonSharpBehaviour
+    public class JoinHandle : TimeEventListener
     {
-        [UdonSynced]
-        string[] joinLogs = new string[0];
-
-        [SerializeField]
-        TimeHandle timeHandle;
-        [SerializeField]
-        GameObject logContent;
-        [SerializeField]
-        Text instancePlayerCountText;
+        [SerializeField] TimeHandle timeHandle;
+        [SerializeField] GameObject logContent;
+        [SerializeField] Text instancePlayerCountText;
+        [UdonSynced] string[] joinLogs = new string[0];
 
         void Start()
         {
-            if (!Networking.IsOwner(this.gameObject))
-                SendCustomNetworkEvent(NetworkEventTarget.Owner, nameof(DoSync));
-
             if (timeHandle) timeHandle.AddListener(this);
-        }
-
-        public void DoSync()
-        {
-            RequestSerialization();
-        }
-        public override void OnDeserialization()
-        {
-            UpdateView();
         }
 
         public override void OnPlayerJoined(VRCPlayerApi player)
@@ -58,13 +39,13 @@ namespace Yamadev.VRCHandMenu
 
             addLog(status, player);
             UpdateView();
-
         }
+
         public override void OnPlayerLeft(VRCPlayerApi player)
         {
             SendCustomEventDelayedSeconds(nameof(UpdateInRoomPlayerCount), 2.0f);
 
-            if (!Networking.IsOwner(this.gameObject)) { return; }
+            if (!Networking.IsOwner(gameObject)) return;
 
             addLog(1, player);
             UpdateView();
@@ -94,8 +75,7 @@ namespace Yamadev.VRCHandMenu
             ret[joinLogs.Length] = content;
             joinLogs = ret;
 
-            DoSync();
-
+            RequestSerialization();
         }
 
         public void UpdateView()
@@ -165,9 +145,8 @@ namespace Yamadev.VRCHandMenu
             }
         }
 
-        public void TimeSecondEvent()
-        {
-            UpdateView();
-        }
+        public override void TimeSecondEvent() => UpdateView();
+
+        public override void OnDeserialization() => UpdateView();
     }
 }

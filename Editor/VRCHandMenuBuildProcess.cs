@@ -30,7 +30,7 @@ namespace Yamadev.VRCHandMenu.Editor
 
             MenuHandle[] handles = Resources.FindObjectsOfTypeAll<MenuHandle>();
             if (handles.Length == 0) return;
-            handles[0].SetVariable("targetCamera", targetCamera);
+            handles[0].SetProgramVariable("targetCamera", targetCamera);
 
             VRC_SceneDescriptor desc = GameObject.Find("VRCWorld").GetComponent<VRC_SceneDescriptor>();
             if (!desc || desc.ReferenceCamera && desc.ReferenceCamera.GetComponent<PostProcessLayer>()) return;
@@ -55,7 +55,7 @@ namespace Yamadev.VRCHandMenu.Editor
                 {
                     if (uiController.GetProgramVariable("_controller") == null)
                     {
-                        if (settings.yamaPlayer != null) uiController.SetVariable("_controller", settings.yamaPlayer);
+                        if (settings.yamaPlayer != null) uiController.SetProgramVariable("_controller", settings.yamaPlayer);
                     }
                 }
             }

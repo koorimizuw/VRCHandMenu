@@ -88,7 +88,7 @@ namespace Yamadev.VRCHandMenu
 
         public override void InputUse(bool value, UdonInputEventArgs args)
         {
-            if (!value || args.handType == HandType.RIGHT) return;
+            if (!value || args.handType != HandType.LEFT || Networking.LocalPlayer.GetPickupInHand(VRC_Pickup.PickupHand.Left) != null) return;
             var now = Time.time;
 
             // is cooling
