@@ -7,8 +7,6 @@ using VRC.SDKBase;
 using Yamadev.VRCHandMenu.Script;
 using Yamadev.YamaStream;
 using Yamadev.YamaStream.UI;
-using UnityEditor;
-using UnityEngine.Device;
 
 namespace Yamadev.VRCHandMenu.Editor
 {
@@ -30,6 +28,10 @@ namespace Yamadev.VRCHandMenu.Editor
 
             MenuHandle[] handles = Resources.FindObjectsOfTypeAll<MenuHandle>();
             if (handles.Length == 0) return;
+
+            string version = UnityEditor.PackageManager.PackageInfo.FindForAssembly(typeof(VRCHandMenuBuildProcess).Assembly).version;
+            handles[0].SetProgramVariable("_version", version);
+
             handles[0].SetProgramVariable("targetCamera", targetCamera);
 
             VRC_SceneDescriptor desc = GameObject.Find("VRCWorld").GetComponent<VRC_SceneDescriptor>();
@@ -43,6 +45,7 @@ namespace Yamadev.VRCHandMenu.Editor
             }
             
             desc.ReferenceCamera = mainCamera;
+
         }
 
         void SetYamaPlayer()
