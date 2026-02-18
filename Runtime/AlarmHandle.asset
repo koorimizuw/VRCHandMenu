@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: AlarmHandle
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 8e6fe71fb08eb214a88dba05f552a3d2,
-    type: 2}
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 84cd9e5cbc864234fad40ce2304a8850, type: 2}
   udonAssembly: 
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: 4827cb2af2908244db00c51ef0e0ed75, type: 3}

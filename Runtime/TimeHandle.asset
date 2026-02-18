@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: TimeHandle
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: af1ded5e042e8724ebff5909ad5145a4,
-    type: 2}
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 3f8999d658f6394478324f86bd8f4cfc, type: 2}
   udonAssembly: 
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: 044bc7aa259ac194891a63158b9cf10b, type: 3}

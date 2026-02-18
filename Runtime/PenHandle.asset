@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: PenHandle
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: 5474d0b85a173734fa74ed894d0bf36e,
-    type: 2}
+  serializedUdonProgramAsset: {fileID: 11400000, guid: cbf65403ec1290e48b287ff4027cd1ae, type: 2}
   udonAssembly: 
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: 770315d4e21fa3148899d32168ecc6de, type: 3}

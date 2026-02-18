@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: JoinHandle
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: fcb26f823cad51449ba65dca31680c36,
-    type: 2}
+  serializedUdonProgramAsset: {fileID: 11400000, guid: 3537311bb55cce94fba9d4506c15ba77, type: 2}
   udonAssembly: 
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: 77b93638302406341b2ff653d5b512bb, type: 3}
