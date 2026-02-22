@@ -12,8 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c333ccfdd0cbdbc4ca30cef2dd6e6b9b, type: 3}
   m_Name: PPController
   m_EditorClassIdentifier: 
-  serializedUdonProgramAsset: {fileID: 11400000, guid: ea2e2277afe34714aa84e472e2f96b71,
-    type: 2}
+  serializedUdonProgramAsset: {fileID: 11400000, guid: cf3af0d7738c2194789289fccc9ff509, type: 2}
   udonAssembly: 
   assemblyError: 
   sourceCsScript: {fileID: 11500000, guid: 072d12dcbd41aca4a8e146eb53f36a43, type: 3}
